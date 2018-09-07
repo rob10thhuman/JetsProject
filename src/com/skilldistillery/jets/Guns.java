@@ -1,5 +1,5 @@
 package com.skilldistillery.jets;
 
-public interface Missiles {
-	
+public interface Guns {
+
 }

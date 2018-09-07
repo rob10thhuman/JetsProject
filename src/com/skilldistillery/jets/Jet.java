@@ -1,6 +1,6 @@
 package com.skilldistillery.jets;
 
-public abstract class Jets {
+public abstract class Jet {
 	private String model;
 	private double speed;
 	private double range;
@@ -38,10 +38,10 @@ public abstract class Jets {
 		this.price = price;
 	}
 
-	public Jets() {
+	public Jet() {
 		
 	}
-	public Jets(String model, double speed, double range, double price) {
+	public Jet(String model, double speed, double range, double price) {
 		super();
 		this.model = model;
 		this.speed = speed;
