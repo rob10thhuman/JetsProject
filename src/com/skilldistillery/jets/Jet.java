@@ -50,5 +50,7 @@ public abstract class Jet {
 	}
 
 	public void fly() {	
+		System.out.println("Flying!");
 	}
+	
 }
