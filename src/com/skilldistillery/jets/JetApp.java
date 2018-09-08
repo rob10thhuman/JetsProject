@@ -4,9 +4,31 @@ public class JetApp {
 
 	public static void main(String[] args) {
 		JetApp letsRoll = new JetApp(); 
+		letsRoll.userMenu();
 		letsRoll.run(); 
+		letsRoll.listFleet(); 
 	}
 	
+
+	private void listFleet() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void userMenu() {
+//		List fleet
+//		Fly all jets
+//		View fastest jet
+//		View jet with longest range
+//		Load all Cargo Jets
+//		Dogfight!
+//		Add a jet to Fleet
+//		Quit
+		System.out.println("MENU");
+		
+	}
+
 	private void run() {
 		Airfield petersonAFB = new Airfield(); 
 		petersonAFB.createJets();

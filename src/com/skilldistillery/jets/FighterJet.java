@@ -10,5 +10,9 @@ public class FighterJet extends Jet implements CombatReady {
 		super(model, speed, range, price);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public void fight() {
+		
+	}
 
 }

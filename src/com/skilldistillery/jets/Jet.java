@@ -53,4 +53,8 @@ public abstract class Jet {
 		System.out.println("Flying!");
 	}
 	
+	public void getSpeedInMach() {
+		
+	}
+	
 }

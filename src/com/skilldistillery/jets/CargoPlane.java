@@ -11,4 +11,7 @@ public class CargoPlane extends Jet implements CargoCarrier {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void loadCargo() {
+		System.out.println("LOAD THE PLANE!");
+	}
 }
