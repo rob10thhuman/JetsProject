@@ -15,6 +15,8 @@ public class JetApp {
 		for (int i = 0; i < petersonJets.length; i++) {
 			if(petersonJets[i]!= null) {
 				System.out.println(petersonJets[i].getModel());
+				System.out.println(petersonJets[i].getPrice());
+				System.out.println(petersonJets[i].getRange());
 			}
 		}
 		
