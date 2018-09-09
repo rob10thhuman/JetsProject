@@ -49,7 +49,7 @@ public abstract class Jet {
 		this.price = price;
 	}
 
-	public void fly() {	
+	public static void fly() {	
 		System.out.println("Flying!");
 	}
 	
