@@ -5,7 +5,7 @@ public abstract class Jet {
 	private double speed;
 	private double range;
 	private double price;
-
+	
 	public String getModel() {
 		return model;
 	}
@@ -49,8 +49,9 @@ public abstract class Jet {
 		this.price = price;
 	}
 
-	public static void fly() {	
-		System.out.println("Flying!");
+	public static void fly(String model) {	
+				System.out.println("Model: " +  model + " is taking off!");
+			
 	}
 	
 	public void getSpeedInMach() {

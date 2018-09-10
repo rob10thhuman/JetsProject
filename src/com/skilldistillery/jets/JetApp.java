@@ -37,11 +37,12 @@ public class JetApp {
 		System.out.println("Here are your options!");
 		System.out.println("1 - List fleet");
 		System.out.println("2 - Fly all jets");
-		System.out.println("3 - View jet with the longest range");
-		System.out.println("4 - Load all Cargo Jets");
-		System.out.println("5 - Dogfight!");
-		System.out.println("6 - Add a jet to the fleet");
-		System.out.println("7 - Quit");
+		System.out.println("3 - View the fastest jet");
+		System.out.println("4 - View jet with the longest range");
+		System.out.println("5 - Load all Cargo Jets");
+		System.out.println("6 - Dogfight!");
+		System.out.println("7 - Add a jet to the fleet");
+		System.out.println("8 - Quit");
 		System.out.print("Please make a choice here: >> ");
 		
 		int choice = scanner.nextInt();
@@ -57,7 +58,8 @@ public class JetApp {
 			//press Enter to continue 
 			userMenu(); 
 		case 2:
-			Jet.fly();
+//			Jet.fly(null);
+			jetsFly();
 			pressEnter(); 
 			userMenu();
 		case 3:
@@ -87,63 +89,36 @@ public class JetApp {
 		public void viewLongestRange() {
 			petersonAFB.createJets();
 			Jet[] petersonJets = petersonAFB.jetInventory;
+			double printMax = 0;
+			// I have an error here that is related to this value assignment to zero
+			// vs the lowest range in the array
 			
-//			double max = petersonJets[i].getRange(); 
-			
-//			for (int i = 0; i < petersonJets.length; i++) {
-//				if (petersonJets[i] != null) {
-//					System.out.println("Model: " + petersonJets[i].getModel() +  " Speed: " + petersonJets[i].getSpeed() + " mph " + " Range: " + petersonJets[i].getRange() + " miles " + " Price: " + petersonJets[i].getPrice() + " Million");
-//				}
-//			}
-			
-			for (int i = 0; i < petersonJets.length; i++) {
-				if (petersonJets[i] != null) {
-					double max = petersonJets[i].getRange(); //evaluate the array 
-					System.out.println(max);
+			for (int j = 0; j < petersonJets.length; j++) {
+				if (petersonJets[j] != null) {
+					printMax = petersonJets[j].getRange(); 
+					System.out.println("The jet with the max range is the " + petersonJets[j].getModel() + " with a range of " + printMax);
+						}
+					}
 					
-						for (int counter = 1; counter < petersonJets.length; counter++)
-						{
-							double decMax = petersonJets[i].getRange(); 
-							double max2 = decMax[0]; 
-							if (decMax[counter] > max)
-							{
-								max = decMax[counter];
-								System.out.println("The maximum range is : " + max);
-							}
-			         
-//							double max = decMax[0];
-//
-//					        for (int counter = 1; counter < decMax.length; counter++)
-//					        {
-//					         if (decMax[counter] > max)
-//					         {
-//					          max = decMax[counter];
-//					          System.out.println("The highest maximum for the December is: " + max);
-//					         } 
-					         
-//					if (max < petersonJets[i].getRange()) {
-//						max = petersonJets[i].getRange(); 
-//						System.out.println(max);
-//					}
-//					else {
-//						System.out.println("What's up doc?");
-//					}
 				}
-			}
+		
+		public void jetsFly() {
+			petersonAFB.createJets();
+			Jet[] petersonJets = petersonAFB.jetInventory;
+			double printMax = 0;
+			
+			for (int j = 0; j < petersonJets.length; j++) {
+				if ((petersonJets[j] != null) && (petersonJets[j].getRange() > printMax)) {
+//					printMax = petersonJets[j].getRange(); 
+					System.out.println("Model " + petersonJets[j].getModel() + " is taking off!");
+						}
+					}
+					
+				}
+			
 		}
-				
-				
-//			
-//	        max = a[0];
-//	        for(int i = 0; i < n; i++)
-//	        {
-//	            if(max < a[i])
-//	            {
-//	                max = a[i];
-//	            }
-//	        }
-//	        System.out.println("Maximum value:"+max);
 
-		}
-}
+
+		
+
 
