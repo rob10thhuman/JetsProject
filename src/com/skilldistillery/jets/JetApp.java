@@ -33,6 +33,7 @@ public class JetApp {
 
 		Scanner scanner = new Scanner(System.in);
 
+		System.out.println();
 		System.out.println("Welcome to the Airfield!");
 		System.out.println("Here are your options!");
 		System.out.println("1 - List fleet");
@@ -62,23 +63,34 @@ public class JetApp {
 			jetsFly();
 			pressEnter(); 
 			userMenu();
-		case 3:
-			viewLongestRange();
+		case 3: 
+			fastestJet(); 
 			pressEnter();
 			userMenu();
 		case 4:
-//			loadCargoJets(); 
+			viewLongestRange();
+			pressEnter();
+			userMenu();
 		case 5:
-//			dogFight(); 
-		case 6:
-//			addJetToFleet(); 
-		case 7:
-			System.out.println("Thank you for visitng the Airfield!");
-			break;
-		default:
+//			loadCargoJets(); 
+			pressEnter();
 			userMenu(); 
+		case 6:
+//			dogFight(); 
+			pressEnter();
+			userMenu();
+		case 7:
+//			addJetToFleet(); 
+			pressEnter();
+			userMenu();
+		case 8:
+			exitProgram(); 
+		default:
+			userMenu();
 		}
 	}
+		
+	
 		public void pressEnter() {
 			System.out.println("Press enter to continue...");
 			try {        System.in.read(); }
@@ -115,10 +127,28 @@ public class JetApp {
 					}
 					
 				}
+		
+		public void fastestJet() {
+			petersonAFB.createJets();
+			Jet[] petersonJets = petersonAFB.jetInventory;
+			double printMax = 0;
+			
+			for (int j = 0; j < petersonJets.length; j++) {
+				if ((petersonJets[j] != null) && (petersonJets[j].getSpeed() > printMax)) {
+					printMax = petersonJets[j].getSpeed(); 
+					System.out.println("Model " + petersonJets[j].getModel() + " is the fastest jet with a speed of " + petersonJets[j].getSpeed() + " MPH.");
+						}
+					}
+					
+				}
+		
+		public void exitProgram() {
+			System.out.println("Thank you for visiting the airfield.");
+			System.exit(0);
+		}
 			
 		}
 
 
-		
 
 
