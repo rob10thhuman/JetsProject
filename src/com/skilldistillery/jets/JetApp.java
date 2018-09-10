@@ -212,21 +212,21 @@ public class JetApp {
 		
 		System.out.println("What is the price of the aircraft are you adding? >>");
 		Double price = kb.nextDouble(); 
-		
-		new JetImpl(name, range, speed, price); 
-//		
-//		for (int i = 0; i < petersonJets.length; i++) {
-//			if (petersonJets[i] !=null) {
-//				Airfield.createJets(); 
-//				JetInventory[i].setModel(name);
-//				petersonJets[i].setRange(range);
-//				petersonJets[i].setSpeed(speed);
-//				petersonJets[i].setPrice(price);
-//				
-//			}
-//		}
+			
+		for (int i = 0; i < petersonJets.length; i++) {
+			if (petersonJets[i] !=null) {
+				new JetImpl(name, range, speed, price);
+				petersonJets[i].setModel(name);
+				petersonJets[i].setRange(range);
+				petersonJets[i].setSpeed(speed);
+				petersonJets[i].setPrice(price);				
+			}
+		}
+		listFleet(); 
 
 		
 		System.out.println("");
+		
+		kb.close();
 	}
 }
