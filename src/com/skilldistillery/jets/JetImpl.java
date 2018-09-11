@@ -7,11 +7,7 @@ public class JetImpl extends Jet {
 	double price;
 	
 	public JetImpl(String model, double speed, double range, double price) {
-		super();
-		this.model = model;
-		this.speed = speed;
-		this.range = range;
-		this.price = price;
+		super(model, speed, range, price);
 	}
 
 	public static void fly() {

@@ -21,3 +21,7 @@ A lot of trial and error in building this program out as far as I have.
 I am really trying to grasp the connections between the classes and the why. 
 I also am trying to grasp the connections to the array. I seem to be able to access
 it to display data but I cannot add to it yet.
+
+### Day 4
+Success! Conceptually, I get these concepts. Struggling with recognizing the 
+syntax. More, struggling to know what to use when.

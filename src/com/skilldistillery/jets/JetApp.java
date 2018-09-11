@@ -2,22 +2,13 @@ package com.skilldistillery.jets;
 
 import java.util.Scanner;
 
-
 public class JetApp {
 	Airfield petersonAFB = new Airfield();
-	Jet[] petersonJets = petersonAFB.jetInventory;
 
 	public static void main(String[] args) {
 		JetApp letsRoll = new JetApp();
-//		letsRoll.run();
 		letsRoll.userMenu();
 	}
-
-//	public void run() {
-////		Airfield petersonAFB = new Airfield();
-////		petersonAFB.createJets();
-////		Jet[] petersonJets = petersonAFB.jetInventory;
-//	}
 
 	public void userMenu() {
 
@@ -50,8 +41,6 @@ public class JetApp {
 			// press Enter to continue
 			userMenu();
 		case 2:
-//			Jet.fly(null);
-//			JetImpl.fly();
 			jetsFly();
 			pressEnter();
 			userMenu();
@@ -64,7 +53,7 @@ public class JetApp {
 			pressEnter();
 			userMenu();
 		case 5:
-			loadCargoJets(); 
+			loadCargoJets();
 			pressEnter();
 			userMenu();
 		case 6:
@@ -86,14 +75,11 @@ public class JetApp {
 
 	public void listFleet() {
 		System.out.println("Listing the fleet");
-		petersonAFB.createJets();
-		Jet[] petersonJets = petersonAFB.jetInventory;
+		Jet[] petersonJets = petersonAFB.getJetInventory();
 
 		for (int i = 0; i < petersonJets.length; i++) {
 			if (petersonJets[i] != null) {
-				System.out.println("Model: " + petersonJets[i].getModel() + " Speed: " + petersonJets[i].getSpeed()
-						+ " mph " + " Range: " + petersonJets[i].getRange() + " miles " + " Price: "
-						+ petersonJets[i].getPrice() + " Million");
+				System.out.println(petersonJets[i]);
 			}
 		}
 	}
@@ -108,56 +94,42 @@ public class JetApp {
 	}
 
 	public void viewLongestRange() {
-		petersonAFB.createJets();
-		Jet[] petersonJets = petersonAFB.jetInventory;
-		double printMax = 0;
-		// I have an error here that is related to this value assignment to zero
-		// vs the lowest range in the array
 
-		for (int j = 0; j < petersonJets.length; j++) {
-			if ((petersonJets[j] != null) && (petersonJets[j].getRange() > printMax)) {
-				printMax = petersonJets[j].getRange();
-				System.out.println("The jet with the max range is the " + petersonJets[j].getModel()
-						+ " with a range of " + printMax);
-				System.out.println("Model: " + petersonJets[j].getModel() + " Speed: " + petersonJets[j].getSpeed()
-						+ " mph " + " Range: " + petersonJets[j].getRange() + " miles " + " Price: "
-						+ petersonJets[j].getPrice() + " Million");
+		Jet longestRange = null;
+		double counter = 0;
 
+		for (Jet jet : petersonAFB.getJetInventory()) {
+			if (jet != null) {
+				if (jet.getRange() > counter) {
+					longestRange = jet;
+					counter = jet.getRange();
+				}
 			}
 		}
-
+		System.out.println("The longest range aircraft is the " + longestRange.getModel() + ". Range is " + counter + " miles.");
 	}
 
 	public void jetsFly() {
-		petersonAFB.createJets();
-		Jet[] petersonJets = petersonAFB.jetInventory;
-		double printMax = 0;
-
-		for (int j = 0; j < petersonJets.length; j++) {
-			if ((petersonJets[j] != null) && (petersonJets[j].getRange() > printMax)) {
-				System.out.println("Model " + petersonJets[j].getModel() + " is taking off!");
+		for (Jet jet : petersonAFB.getJetInventory()) {
+			if (jet != null) {
+				jet.fly(jet.getModel());
 			}
 		}
-
 	}
 
 	public void fastestJet() {
-		petersonAFB.createJets();
-		Jet[] petersonJets = petersonAFB.jetInventory;
-		double printMax = 0;
+		Jet fastestJet = null;
+		double counter = 0;
 
-		for (int j = 0; j < petersonJets.length; j++) {
-			if ((petersonJets[j] != null) && (petersonJets[j].getSpeed() > printMax)) {
-				printMax = petersonJets[j].getSpeed();
-				System.out.println("Model " + petersonJets[j].getModel() + " is the fastest jet with a speed of "
-						+ petersonJets[j].getSpeed() + " MPH.");
-				System.out.println("Model: " + petersonJets[j].getModel() + " Speed: " + petersonJets[j].getSpeed()
-						+ " mph " + " Range: " + petersonJets[j].getRange() + " miles " + " Price: "
-						+ petersonJets[j].getPrice() + " Million");
-
+		for (Jet jet : petersonAFB.getJetInventory()) {
+			if (jet != null) {
+				if (jet.getSpeed() > counter) {
+					fastestJet = jet;
+					counter = jet.getSpeed();
+				}
 			}
 		}
-
+		System.out.println("The fastest aircraft is the " + fastestJet.getModel() + ". Speed is " + counter + " MPH.");
 	}
 
 	public void exitProgram() {
@@ -166,67 +138,46 @@ public class JetApp {
 	}
 
 	public void dogFight() {
-		System.out.println("The dogfight goes here.");
-//		petersonAFB.createJets();
-//		Jet[] petersonJets = petersonAFB.jetInventory;
-//		double printMax = 0;
-//
-//		for (int j = 0; j < petersonJets.length; j++) {
-//			if ((petersonJets[j] != null) && (petersonJets[j].getSpeed() > printMax)) {
-//				printMax = petersonJets[j].getSpeed();
-//				System.out.println("The fastest jet is:");
-//				System.out.println("Model: " + petersonJets[j].getModel() + " Speed: " + petersonJets[j].getSpeed()
-//						+ " mph " + " Range: " + petersonJets[j].getRange() + " miles " + " Price: "
-//						+ petersonJets[j].getPrice() + " Million");
-//			}
-//		}
-//
-//		printMax = 0;
-//
-//		for (int j = 0; j < petersonJets.length; j++) {
-//			if ((petersonJets[j] != null) && (petersonJets[j].getRange() > printMax)) {
-//				printMax = petersonJets[j].getRange();
-//				System.out.println("The longest range jet is: ");
-//				System.out.println("Model: " + petersonJets[j].getModel() + " Speed: " + petersonJets[j].getSpeed()
-//						+ " mph " + " Range: " + petersonJets[j].getRange() + " miles " + " Price: "
-//						+ petersonJets[j].getPrice() + " Million");
-//			}
-//		}
+		for (Jet jet : petersonAFB.getJetInventory()) {
+			if (jet !=null) {
+				if (jet instanceof FighterJet) {
+					System.out.println("These are your jet planes: " + jet.getModel());
+				}
+			}
+		}
 	}
-	
+
 	public void loadCargoJets() {
-		System.out.println("This method should return the Cargo Jets.");
+		
+		for (Jet jet : petersonAFB.getJetInventory()) {
+			if (jet !=null) {
+				if (jet instanceof CargoPlane) {
+					System.out.println("These are your cargo planes: " + jet.getModel());
+				}
+			}
+		}
 	}
 
 	public void addJetToFleet() {
 		Scanner kb = new Scanner(System.in);
-		
+
 		System.out.println("What model aircraft are you adding? >>");
-		String name = kb.nextLine(); 
+		String name = kb.nextLine();
 
 		System.out.println("What is the range of the aircraft are you adding? >>");
-		Double range = kb.nextDouble(); 
-		
+		Double range = kb.nextDouble();
+
 		System.out.println("What is the speed of the aircraft are you adding? >>");
-		Double speed = kb.nextDouble(); 
-		
+		Double speed = kb.nextDouble();
+
 		System.out.println("What is the price of the aircraft are you adding? >>");
-		Double price = kb.nextDouble(); 
+		Double price = kb.nextDouble();
 			
-		for (int i = 0; i < petersonJets.length; i++) {
-			if (petersonJets[i] !=null) {
-				new JetImpl(name, range, speed, price);
-				petersonJets[i].setModel(name);
-				petersonJets[i].setRange(range);
-				petersonJets[i].setSpeed(speed);
-				petersonJets[i].setPrice(price);				
-			}
-		}
+		Jet freshJet = new JetImpl(name, range, speed, price);
+		petersonAFB.addJet(freshJet);
+
 		listFleet(); 
 
-		
 		System.out.println("");
-		
-		kb.close();
 	}
 }
